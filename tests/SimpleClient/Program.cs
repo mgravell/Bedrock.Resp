@@ -15,8 +15,9 @@ namespace SimpleClient
     {
         static async Task Main()
         {
+            Console.WriteLine("Enabled: " + Environment.GetEnvironmentVariable("DOTNET_SYSTEM_THREADING_POOLASYNCVALUETASKS"));
             var endpoint = new IPEndPoint(IPAddress.Loopback, 6379);
-            await ExecuteBedrock(endpoint, 50000);
+            await ExecuteBedrock(endpoint, 25000);
             // await ExecuteStackExchangeRedis(endpoint, 1000);
         }
 
@@ -47,16 +48,16 @@ namespace SimpleClient
             timer.Stop();
             Console.WriteLine($"{Me()}: time for {count} ops (val-type): {timer.ElapsedMilliseconds}ms");
 
-            timer = Stopwatch.StartNew();
-            for (int i = 0; i < count; i++)
-            {
-                await protocol.PingAsync();
-                //await protocol.SendAsync(RedisFrame.Ping);
+            //timer = Stopwatch.StartNew();
+            //for (int i = 0; i < count; i++)
+            //{
+            //    await protocol.PingAsync();
+            //    //await protocol.SendAsync(RedisFrame.Ping);
 
-                //using var pong = await protocol.ReadAsync();
-            }
-            timer.Stop();
-            Console.WriteLine($"{Me()}: time for {count} ops (ref-type): {timer.ElapsedMilliseconds}ms");
+            //    //using var pong = await protocol.ReadAsync();
+            //}
+            //timer.Stop();
+            //Console.WriteLine($"{Me()}: time for {count} ops (ref-type): {timer.ElapsedMilliseconds}ms");
 
 
         }
