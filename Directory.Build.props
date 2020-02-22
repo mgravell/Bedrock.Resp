@@ -1,15 +1,16 @@
 <Project>
   <PropertyGroup>
     <Copyright>2020 Marc Gravell</Copyright>
-
+    <Authors>Marc Gravell</Authors>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <AssemblyOriginatorKeyFile>RESPite.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../../RESPite.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
     <LangVersion>8.0</LangVersion>
     <NoWarn>NU5105</NoWarn>
     
     <PackageId>$(AssemblyName)</PackageId>
-    <!--<PackageReleaseNotes>...</PackageReleaseNotes>-->
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mgravell/RESPite</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/mgravell/RESPite</RepositoryUrl>
@@ -20,7 +21,6 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <IncludeSymbols>false</IncludeSymbols>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
   </PropertyGroup>
   
